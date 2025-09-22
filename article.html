@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>4 Articles — Side by Side</title>
+  <style>
+    :root{
+      --gap: 18px;
+      --card-radius: 12px;
+      --shadow: 0 6px 18px rgba(18,20,30,0.08);
+      --max-width: 1200px;
+      --card-bg: #ffffff;
+    }
+
+    body{
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      margin: 24px;
+      background: linear-gradient(180deg,#f6f8fb 0%, #ffffff 100%);
+      color: #0f1720;
+      display: flex;
+      justify-content: center;
+    }
+
+    .wrap{
+      width: 100%;
+      max-width: var(--max-width);
+    }
+
+    .grid{
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--gap);
+      align-items: start;
+    }
+
+    .card{
+      background: var(--card-bg);
+      border-radius: var(--card-radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 360px;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .card:hover{ transform: translateY(-6px); box-shadow: 0 12px 28px rgba(18,20,30,0.12);} 
+
+    .media{
+      width:100%;
+      height:160px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-body{
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1 1 auto;
+    }
+
+    h3{ margin: 0; font-size: 1.05rem; }
+    p{ margin: 0; color: #344054; font-size: 0.95rem; line-height: 1.4 }
+
+    .controls{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      margin-top: auto;
+    }
+
+    .color-btn{
+      border: none;
+      padding: 8px 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 2px 6px rgba(2,6,23,0.06);
+    }
+
+    /* small visual color indicators */
+    .color-dot{ display:inline-block; width:12px; height:12px; border-radius:50%; margin-right:8px; vertical-align:middle; }
+
+    .reset-btn{
+      background: transparent; border:1px solid #e6e9ef; padding:7px 10px; border-radius:8px; cursor:pointer;
+    }
+
+    /* Responsive: stack to 2 columns then 1 */
+    @media (max-width: 1000px){
+      .grid{ grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px){
+      .grid{ grid-template-columns: 1fr; }
+      .media{ height:200px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h2 style="margin-bottom:14px">Four articles — click a color to change background</h2>
+
+    <div class="grid">
+
+      <!-- Article 1 -->
+      <article class="card" data-default-bg="#ffffff">
+        <img class="media" src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?q=80&w=1200&auto=format&fit=crop&crop=top" alt="Mountain view">
+        <div class="card-body">
+          <h3>Exploring the Peaks</h3>
+          <p>Short intro about mountain adventures, scenery and the calm you find above the clouds.</p>
+
+          <div class="controls">
+            <button class="color-btn" data-color="#fff1f0"><span class="color-dot" style="background:#fff1f0"></span>Warm</button>
+            <button class="color-btn" data-color="#f0f9ff"><span class="color-dot" style="background:#f0f9ff"></span>Cool</button>
+            <button class="color-btn" data-color="#effaf3"><span class="color-dot" style="background:#effaf3"></span>Fresh</button>
+            <button class="reset-btn">Reset</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="card" data-default-bg="#ffffff">
+        <img class="media" src="https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=1200&auto=format&fit=crop&crop=top" alt="City at dusk">
+        <div class="card-body">
+          <h3>City Lights</h3>
+          <p>A short piece on urban evenings, street food, and the rhythm of a city that never really sleeps.</p>
+
+          <div class="controls">
+            <button class="color-btn" data-color="#fff7ed"><span class="color-dot" style="background:#fff7ed"></span>Sunset</button>
+            <button class="color-btn" data-color="#f6f6ff"><span class="color-dot" style="background:#f6f6ff"></span>Evening</button>
+            <button class="color-btn" data-color="#f3f8ff"><span class="color-dot" style="background:#f3f8ff"></span>Night</button>
+            <button class="reset-btn">Reset</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="card" data-default-bg="#ffffff">
+        <img class="media" src="https://images.unsplash.com/photo-1517511620798-cec17d428bc0?q=80&w=1200&auto=format&fit=crop&crop=top" alt="Coffee and book">
+        <div class="card-body">
+          <h3>Cafe Musings</h3>
+          <p>Notes from a corner table: a cup of coffee, a notebook, and ideas that refuse to be quiet.</p>
+
+          <div class="controls">
+            <button class="color-btn" data-color="#fffaf0"><span class="color-dot" style="background:#fffaf0"></span>Cozy</button>
+            <button class="color-btn" data-color="#f7fff6"><span class="color-dot" style="background:#f7fff6"></span>Green</button>
+            <button class="color-btn" data-color="#fff0fb"><span class="color-dot" style="background:#fff0fb"></span>Blush</button>
+            <button class="reset-btn">Reset</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Article 4 -->
+      <article class="card" data-default-bg="#ffffff">
+        <img class="media" src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop&crop=top" alt="Beach scene">
+        <div class="card-body">
+          <h3>Coastal Notes</h3>
+          <p>Stories from the coast: tides, wind, and the people who listen to the waves for a living.</p>
+
+          <div class="controls">
+            <button class="color-btn" data-color="#eef9ff"><span class="color-dot" style="background:#eef9ff"></span>Ocean</button>
+            <button class="color-btn" data-color="#fffaf2"><span class="color-dot" style="background:#fffaf2"></span>Sand</button>
+            <button class="color-btn" data-color="#f0fff7"><span class="color-dot" style="background:#f0fff7"></span>Breeze</button>
+            <button class="reset-btn">Reset</button>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+
+  <script>
+    // Attach event listeners to each card's color buttons.
+    document.querySelectorAll('.card').forEach(card => {
+      const defaultBg = card.getAttribute('data-default-bg') || '#ffffff';
+
+      // when a color button is clicked, change the card background and optionally store it in a data attribute
+      card.querySelectorAll('.color-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const color = btn.getAttribute('data-color');
+          card.style.backgroundColor = color;
+        });
+      });
+
+      // reset button
+      const reset = card.querySelector('.reset-btn');
+      if(reset) reset.addEventListener('click', () => {
+        card.style.backgroundColor = defaultBg;
+      });
+
+      // keyboard accessibility: allow Enter/Space to activate the buttons
+      card.querySelectorAll('.color-btn, .reset-btn').forEach(b => {
+        b.setAttribute('tabindex','0');
+        b.addEventListener('keydown', (e) => {
+          if(e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            b.click();
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
