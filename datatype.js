@@ -17,9 +17,9 @@ console.log(typeof d);
 array =[56,"Deepthi",true,null];
 console.log(typeof data);
 obj = {
-    name = "Deepthi",
-    age = "20",
-    dept = "AIML"
+    name:"Deepthi",
+    age:"20",
+    dept:"AIML"
 };
 console.log(typeof data);
 
